@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:task_qrcode/ocr_task.dart';
+import 'package:task_qrcode/features/ocr_scan/models/ocr_task.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

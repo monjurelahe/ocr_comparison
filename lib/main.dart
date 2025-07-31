@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:task_qrcode/ocr_task.dart';
+import 'package:task_qrcode/route/route.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Color(0xfff2f8fe)),
           ),
-          // getPages: AppRoute.routes,
-          // initialRoute: AppRoute.tankReading,
-          home: OCRTask(),
+          getPages: AppRoute.routes,
+          initialRoute: AppRoute.ocrTask,
+          //home: OCRTask(),
         );
       },
     );

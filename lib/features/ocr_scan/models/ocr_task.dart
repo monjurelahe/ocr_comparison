@@ -21,7 +21,7 @@ class _OCRTaskState extends State<OCRTask> {
     return null;
   }
 
-  /// Method 1: Full text using MLKit (standard method)
+  // Method 1: Full text using MLKit (standard method)
   Future<void> _useMLKitStandard() async {
     final imageFile = await _pickImage();
     if (imageFile == null) return;
@@ -58,7 +58,7 @@ class _OCRTaskState extends State<OCRTask> {
     });
   }
 
-  /// Method 3: Extract only lines with length > 10 or with confidence (simulated)
+  /// Method 3: Extract only
   Future<void> _useFilteredLineOCR() async {
     final imageFile = await _pickImage();
     if (imageFile == null) return;
@@ -103,8 +103,6 @@ class _OCRTaskState extends State<OCRTask> {
             SizedBox(height: 10),
             Center(
               child: Column(
-                // spacing: 10,
-                // runSpacing: 10,
                 children: [
                   ElevatedButton(
                     onPressed: _useMLKitStandard,
