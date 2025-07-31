@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:task_qrcode/core/const/textstyle.dart';
 
 class OCRTask extends StatefulWidget {
   const OCRTask({super.key});
@@ -86,12 +87,17 @@ class _OCRTaskState extends State<OCRTask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('OCR Scanner Page'), centerTitle: true),
+      backgroundColor: Color(0xfff2f8fe),
+      //appBar: AppBar(title: Text('OCR Scanner Page'), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            SizedBox(height: 52),
+
+            Text('OCR Scanner Page', style: headingText(blackColor)),
+            SizedBox(height: 11),
             if (_selectedImage != null)
               Image.file(_selectedImage!, height: 200),
             SizedBox(height: 10),
@@ -100,24 +106,25 @@ class _OCRTaskState extends State<OCRTask> {
                 child: Text(_ocrResult, style: TextStyle(fontSize: 16)),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             Center(
               child: Column(
                 children: [
-                  ElevatedButton(
-                    onPressed: _useMLKitStandard,
-                    child: Text('MLKit Full'),
+                  GestureDetector(
+                    onTap: _useMLKitStandard,
+                    child: linearButton('MLKit'),
                   ),
                   SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: _useBlockWiseOCR,
-                    child: Text('Block-wise OCR'),
+                  GestureDetector(
+                    onTap: _useMLKitStandard,
+                    child: linearButton('Block wise'),
                   ),
                   SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: _useFilteredLineOCR,
-                    child: Text('Filtered OCR'),
+                  GestureDetector(
+                    onTap: _useMLKitStandard,
+                    child: linearButton('Filtered OCR'),
                   ),
+                  SizedBox(height: 10),
                 ],
               ),
             ),
